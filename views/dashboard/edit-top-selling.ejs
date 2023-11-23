@@ -1,0 +1,50 @@
+<%- include('./header.ejs')%>
+
+
+
+
+ <div class="container-fluid">
+    <div class="row">
+
+    
+        <div class="col-sm-12 col-md-3 col-lg-2 p-0">
+            <%- include('./leftdb.ejs')%>
+        </div>
+
+        <div class="col-sm-12 col-md-9 col-lg-10 " style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+            
+
+              <div class="container-fluid" style="margin-top:-190px ;">
+                <h1 class="text-center"> Edit Product Details</h1>
+                <form  method="post">
+
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input type="text" name="productname" class="form-control" id="productName" placeholder="Enter product name" value="<%=editdata1.productname %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">Product Description</label>
+                        <input type="text" class="form-control" name="productdescription" id="productDescription" rows="4" placeholder="Enter product description" value="<%=editdata1.productdescription %>"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Price</label>
+                        <input type="text" name="price" class="form-control" id="productPrice" placeholder="Enter product price" value="<%=editdata1.price %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Discount</label>
+                        <input type="text" name="discount" class="form-control" id="discount" placeholder="Enter product discount" value="<%=editdata1.discount %>">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="productImage">Product Image</label>
+                        <input type="file" class="form-control-file" name="image" id="productImage" value="<%=editdata1.image %>">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+            
+        </div> 
+
+        
+
+   </div>
+</div>

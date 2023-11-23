@@ -1,0 +1,80 @@
+<%- include('./header.ejs')%>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+<style>
+  img{
+    height: 60px;
+  }
+</style>
+
+
+ <div class="container-fluid">
+    <div class="row">
+
+    
+        <div class="col-sm-3 col-md-3 col-lg-2 p-0">
+            <%- include('./leftdb.ejs')%>
+        </div>
+
+        
+        <div class="col-sm-7 col-md-7 col-lg-6 " >
+          <!-- style="display: flex;justify-content: center;align-items: center;flex-direction: column;"> -->
+              
+        
+<% if(signupdata.length>0){%>
+            <table class="table" id="mytable">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col-md-1">USERNAME</th>
+                    <th scope="col-md-1">FIRSTNAME</th>
+                    <th scope="col=md-1">LASTNAME</th>
+                    <th scope="col-md-1">EMAIL</th>                    
+                    <th scope="col-md-1">PASSWORD</th>                    
+                    <th scope="col-md-1">Edit - Delete</th>                    
+                                     
+                                   
+                    
+                  </tr>
+                </thead>
+                </tbody>
+                <%for(var i=0; i<signupdata.length; i++){%>
+                  <tr>
+                    <td><%= signupdata[i].username %></td>
+                    <td><%= signupdata[i].firstname %></td>
+                    <td><%= signupdata[i].lastname %></td>
+                    <td><%= signupdata[i].email %></td>
+                    <td><%= signupdata[i].password %></td>
+                    <td><a href="/edit4/<%=signupdata[i]._id %>">Edit</a>&nbsp;&nbsp;
+                      <a href="/delete5/<%=signupdata[i]._id %>">Delete</a></td>
+                  </tr>
+                  <% } %>
+                  </tbody>
+               
+                
+              </table>
+              <% } else {%>
+                no record found
+        <% } %>
+
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+
+
+<script>
+  $(document).ready(function(){
+      $('#mytable').DataTable();
+  })
+</script>
+
+
+
+<button ><a href="/export/excel">Export user into excel</a></button>
+<!-- <button ><a href="/import-user">Import excel data</a></button> -->
+<button ><a href="/export/csv">Export into Csv </a></button>
+<!-- <button ><a href="/export/pdf">Export into PDF </a></button> -->

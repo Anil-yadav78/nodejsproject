@@ -1,0 +1,64 @@
+<%- include('common/header.ejs') %>
+
+
+<!-- Product Details -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+   
+    <style>
+        /* Custom CSS */
+        .product-details {
+            padding: 20px;
+        }
+        .col-md-6 img{
+            height: 500px;
+            width: 550px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+           <img src="http://localhost:7000/upload2/<%= newdata.image %>" alt="Product Image" class="">
+        </div>
+        <div class="col-md-5">
+            <div class="product-details">
+                <h2><%= newdata.productname %></h2>
+                <p><%= newdata.productdescription %></p>
+                <p><strong>&#8377 <%= newdata.price %></strong></p>
+                <p><strong>Availability: In Stock</strong></p>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <br><br>
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+    const quantityInput = document.getElementById("quantity");
+
+    quantityInput.addEventListener("change", (e) => {
+        const quantity = e.target.value;
+        // You can add logic here to update the total price or perform other actions.
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+ 
+ 
+ 

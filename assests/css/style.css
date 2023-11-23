@@ -1,0 +1,107 @@
+nav{
+  background-color:#264653;
+  height: 50px;
+}
+
+.navbar-nav .nav-item{
+width: 130px;
+text-align: center;
+height: 52px;
+font-weight: bold;
+}
+/* .navbar-nav .nav-item:hover{
+    background-color: white;
+    
+} */
+.nav-item .nav-link:hover{
+    font-weight: bold;
+    color: black;
+}
+.nav-item{
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+    
+}
+.nav-item::after{
+    content: "";
+    position: absolute;
+    background-color: #ff1361;
+    height: 3px;
+    width:0 ;
+    left: 0;
+    bottom: -8px;
+    transition: 0.3s;
+}
+.nav-item:hover::after{
+    width: 100%;
+}
+.bow {
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+    
+}
+.bow ::after{
+    content: "";
+    position: absolute;
+    background-color: #ff1361;
+    height: 3px;
+    width:0 ;
+    left: 0;
+    bottom: -8px;
+    transition: 0.3s;
+}
+.bow  :hover::after{
+    width: 100%;
+}
+.bow{
+    /* border: 1px solid black; */
+    width: 50px;
+}
+.bow:hover{
+    background-color: white;   
+}
+.bow i:hover{
+    color: black;
+}
+.heart{
+    width: 50px;
+}
+.heart:hover{
+    background-color: white;
+    color: red;
+}
+.heart i:hover{
+    color:red;
+}
+
+/* top selling */
+
+  .col-md-3 a{
+    text-decoration: none;
+    color: black;
+   font-weight: bold;
+  }
+
+  /* categories */
+  .col-lg-4 .card{
+    overflow: hidden;
+}
+.col-lg-4 .card img{
+    transition:transform 0.3s;
+   
+}
+.col-lg-4 .card :hover img{
+    transform: scale(1.1);
+}
+  .col-lg-3 .card{
+    overflow: hidden;
+}
+.col-lg-3 .card img{
+    transition:transform 0.3s;
+   
+}
+.col-lg-3 .card :hover img{
+    transform: scale(1.1);
+}

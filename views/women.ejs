@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOPLUV</title>
+</head>
+<body>
+    <!-- header  -->
+    <%- include('common/header.ejs') %>
+     <!-- -->
+
+
+     <!-- banner section -->
+
+ 
+
+  
+     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../assests/images/women/Web-Banner_2_iAOGwJy.webp" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../assests/images/women/web-banner_2.webp" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../assests/images/women/Web-Banner_2_5SgQ0V7.webp" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    
+
+
+
+      <!-- product -->
+  <div class="container-fluid mt-5">
+    <div class="row">
+        <div class="text text-center"><h3>TOP SELLING</h3></div>
+    </div>
+  </div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+       
+  <% if(coldata.length>0){%>
+    <%for(var i=0; i<coldata.length; i++){%>
+ <div class="col-md-3 col-sm-3 mt-5">
+            <div class="card" style="width: 19rem;">
+               <a href="/packagedetailswomen/<%=coldata[i]._id %>"><img src ="http://localhost:7000/upload2/<%= coldata[i].image %>" class="card-img-top" alt="..."></a>
+              
+                <div class="card-body">
+                  <a href="#"><h6 class="card-title"><%= coldata[i].productdescription %></h6></a>
+                  <a href="#"> <p class="card-text"><%= coldata[i].productname %><br>&#8377 <%= coldata[i].price %>&nbsp;&nbsp;<%= coldata[i].discount %></p></a>
+             
+                </div>
+              </div>
+        </div>
+
+       
+        <% } %>
+        <% } else {%>
+            no record found
+        <% } %>
+
+    </div> 
+</div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="text text-center"><h3>CATEGORIES</h3></div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid mt-5">
+    <div class="row">
+      <%for(var i=0; i<coldata.length; i++){%>
+      <div class="col-lg-4 mt-3">
+        <div class="card" style="height: 26rem;">
+
+          <a href="/packagedetailswomen/<%=coldata[i]._id %>"><img src ="http://localhost:7000/upload2/<%= coldata[i].image %>" class="card-img" alt="..."></a>
+       
+          </div>
+          </div>
+          <% } %>
+    </div>
+</div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+      <%for(var i=0; i<coldata.length; i++){%>
+      <div class="col-lg-3 mt-3">
+        <div class="card" style="height: 19rem;">
+
+          <a href="/packagedetailswomen/<%=coldata[i]._id %>"><img src ="http://localhost:7000/upload2/<%= coldata[i].image %>" class="card-img" alt="..."></a>
+       
+          </div>
+          </div>
+          <% } %>
+    </div>
+</div>
+
+<!-- footer -->
+
+<%- include('common/footer.ejs') %>
+
+</body>
+</html>

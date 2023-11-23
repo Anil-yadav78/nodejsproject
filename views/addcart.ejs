@@ -1,0 +1,86 @@
+<html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Your Shopping Cart</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+     <style>
+         /* Custom CSS */
+         .product-list {
+             display: flex;
+             flex-wrap: wrap;
+         }
+         .product {
+             border: 1px solid #ccc;
+             padding: 10px;
+             margin: 10px;
+             width: 300px;
+         }
+         .cart {
+             width: 300px;
+             margin-left: 20px;
+         }
+     </style>
+ </head>
+ <body>
+    
+     <div class="container mt-5">
+         <div class="product-list">
+             <!-- Product 1 -->
+             <div class="product">
+                 <h2>Product 1</h2>
+                 <p>Price: $49.99</p>
+                 <button class="btn btn-primary add-to-cart">Add to Cart</button>
+             </div>
+             <!-- Product 2 -->
+             <div class="product">
+                 <h2>Product 2</h2>
+                 <p>Price: $39.99</p>
+                 <button class="btn btn-primary add-to-cart">Add to Cart</button>
+             </div>
+             <!-- Add more products here -->
+         </div>
+         <div class="cart">
+             <h2>Your Cart</h2>
+             <ul id="cart-items"></ul>
+             <p>Total Price: $<span id="total-price">0.00</span></p>
+         </div>
+     </div>
+ 
+     <script>
+         // JavaScript functionality (client-side)
+         const addToCartButtons = document.querySelectorAll(".add-to-cart");
+         const cartItemsList = document.getElementById("cart-items");
+         const totalPriceElement = document.getElementById("total-price");
+         let cart = [];
+ 
+         addToCartButtons.forEach((button, index) => {
+             button.addEventListener("click", () => {
+                 const product = {
+                     name: `Product ${index + 1}`,
+                     price: index === 0 ? 49.99 : 39.99,
+                 };
+                 cart.push(product)
+                 updateCart();
+             });
+         });
+ 
+         function updateCart() {
+             cartItemsList.innerHTML = '';
+             let totalPrice = 0;
+ 
+             cart.forEach((item) => {
+                 const listItem = document.createElement("li");
+                 listItem.textContent = `${item.name} - $${item.price}`;
+                 cartItemsList.appendChild(listItem);
+                 totalPrice += item.price;
+             });
+ 
+             totalPriceElement.textContent = totalPrice.toFixed(2);
+         }
+     </script>
+ 
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+ </body>
+ </html>

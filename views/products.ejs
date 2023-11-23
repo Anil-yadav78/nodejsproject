@@ -1,0 +1,17 @@
+<%- include('common/header.ejs') %>
+<div class="container-fluid mt-5">
+    <div class="row">
+      <% if(coldata.length>0){%>
+        <%for(var i=0; i<coldata.length; i++){%>
+
+       <div class="col-lg-4 mt-4">
+        <div class="card">
+            <a href="#"> <img src="http://localhost:7000/upload/<%= coldata[i].image %>" class="card-img" alt="..."></a>
+        </div>
+        </div>
+        <% } %>
+        <% } else {%>
+            no record found
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<%- include('./header.ejs')%>
+
+<style>
+  img{
+    height: 60px;
+  }
+</style>
+
+
+ <div class="container-fluid">
+    <div class="row">
+
+    
+        <div class="col-sm-3 col-md-3 col-lg-2 p-0">
+            <%- include('./leftdb.ejs')%>
+        </div>
+
+        
+        <div class="col-sm-7 col-md-7 col-lg-10 " style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+              
+        
+<% if(newdata.length>0){%>
+            <table class="table">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col-md-1">PRODUCT-NAME</th>
+                    <th scope="col-md-1">PRODUCT-DESCRIPTION</th>
+                    <th scope="col=md-1">PRODUCT-PRICE</th>
+                    <th scope="col-md-1">PRODUCT-DISCOUNT</th>                    
+                    <th scope="col-md-1">PRODUCT-IMAGE</th>                    
+                    <th scope="col-md-1">Edit - Delete</th>                    
+                                     
+                                   
+                    
+                  </tr>
+                </thead>
+                </tbody>
+                <%for(var i=0; i<newdata.length; i++){%>
+                  <tr>
+                    <td><%= newdata[i].productname %></td>
+                    <td><%= newdata[i].productdescription %></td>
+                    <td><%= newdata[i].price %></td>
+                    <td><%= newdata[i].discount %></td>
+                    <td> <img  src="http://localhost:7000/upload2/<%= newdata[i].image %>"></td>
+                    <td><a href="/edit3/<%=newdata[i]._id %>">Edit</a>&nbsp;&nbsp;
+                      <a href="/delete4/<%=newdata[i]._id %>">Delete</a></td>
+                  </tr>
+                  <% } %>
+                  </tbody>
+               
+                
+              </table>
+              <% } else {%>
+                no record found
+        <% } %>
+
+    </div>
+</div>
